@@ -1,0 +1,48 @@
+@import "../../styles/global";
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  &__left {
+    display: block;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+
+    button {
+      background: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 10px;
+    }
+  }
+}
+
+.MuiList-root,
+.MuiMenu-list,
+.MuiList-padding {
+  padding: 0 !important;
+  background-color: transparent !important;
+
+  li {
+    padding: 0 !important;
+    box-shadow: none !important;
+
+    button {
+      width: 100%;
+      background-color: #fff !important;
+      color: #1d245c !important;
+      box-shadow: none !important;
+
+      &:hover {
+        background-color: #fff !important;
+      }
+    }
+  }
+}
