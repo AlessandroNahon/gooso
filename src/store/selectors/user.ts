@@ -1,5 +1,3 @@
-import { AppState } from "../../types";
-import { UserObject } from "../../types/user";
+import { AppState } from '../../types'
 
-export const selectAuthedUser = (state: AppState): any =>
-  state.userReducer.user;
+export const selectAuthedUser = (state: AppState): any => state.userReducer.user

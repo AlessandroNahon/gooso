@@ -1,56 +1,56 @@
-import React, { useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import React, { useState } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 import {
   TypedUseSelectorHook,
-  useSelector as useSelectorGeneric,
-} from "react-redux";
+  useSelector as useSelectorGeneric
+} from 'react-redux'
 
-import { Avatar, Button, Menu, MenuItem } from "@material-ui/core";
+import { Avatar, Button, Menu, MenuItem } from '@material-ui/core'
 
-import { AppState } from "../../types";
-import { selectAuthedUser } from "../../store/selectors/user";
-import { getInitials } from "../../utils/string";
+import { AppState } from '../../types'
+import { selectAuthedUser } from '../../store/selectors/user'
+import { getInitials } from '../../utils/string'
 
-import "./styles.scss";
+import './styles.scss'
 
-const useSelector: TypedUseSelectorHook<AppState> = useSelectorGeneric;
+const useSelector: TypedUseSelectorHook<AppState> = useSelectorGeneric
 
 interface Props {
-  routes: Array<any>;
+  routes: Array<any>
 }
 
 const TopNav: React.FC<Props> = ({ routes }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const currentUser = useSelector(selectAuthedUser);
-  const history = useHistory();
-  const location = useLocation();
+  const [anchorEl, setAnchorEl] = useState(null)
+  const currentUser = useSelector(selectAuthedUser)
+  const history = useHistory()
+  const location = useLocation()
 
   const handleClick = (e: any) => {
-    setAnchorEl(e.currentTarget);
-  };
+    setAnchorEl(e.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   const signOut = () => {
-    localStorage.removeItem("auth_session");
-    localStorage.removeItem("state");
-    history.push("/login");
-  };
+    localStorage.removeItem('auth_session')
+    localStorage.removeItem('state')
+    history.push('/login')
+  }
 
-  const goToProfile = () => history.push("/dashboard/profile");
+  const goToProfile = () => history.push('/dashboard/profile')
 
   return (
-    <div className="top-nav">
-      <div className="top-nav__left">
+    <div className='top-nav'>
+      <div className='top-nav__left'>
         <h2>
           {routes.map((route) =>
-            route.path === location.pathname ? route.name : ""
+            route.path === location.pathname ? route.name : ''
           )}
         </h2>
       </div>
-      <div className="top-nav__right">
+      <div className='top-nav__right'>
         <Avatar onClick={handleClick}>{getInitials(currentUser.name)}</Avatar>
         <Menu
           anchorEl={anchorEl}
@@ -60,20 +60,20 @@ const TopNav: React.FC<Props> = ({ routes }) => {
         >
           <MenuItem onClick={handleClose}>
             <Button
-              className="button"
-              variant="contained"
+              className='button'
+              variant='contained'
               onClick={goToProfile}
-              type="submit"
+              type='submit'
             >
               Profile
             </Button>
           </MenuItem>
           <MenuItem onClick={handleClose}>
             <Button
-              className="button"
-              variant="contained"
+              className='button'
+              variant='contained'
               onClick={signOut}
-              type="submit"
+              type='submit'
             >
               Sign out
             </Button>
@@ -81,7 +81,7 @@ const TopNav: React.FC<Props> = ({ routes }) => {
         </Menu>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TopNav;
+export default TopNav
