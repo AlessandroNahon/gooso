@@ -34,6 +34,20 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run build -s"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier --write"
+    ],
+    "src/**/*.{css,scss}": [
+      "prettier --write"
+    ]
+  },
   "proxy": "http://localhost:4200",
   "eslintConfig": {
     "extends": "react-app"
@@ -49,5 +63,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2"
   }
 }
