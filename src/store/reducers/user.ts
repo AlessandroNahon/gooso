@@ -1,11 +1,11 @@
-import { UserActionTypes, UserState } from "../../types/user";
+import { UserActionTypes, UserState } from '../../types/user'
 
-import { ADD_AUTHED_USER, REMOVE_AUTHED_USER } from "../../store/types";
+import { ADD_AUTHED_USER, REMOVE_AUTHED_USER } from '../../store/types'
 
 const initialState: UserState = {
   user: {},
-  users: [],
-};
+  users: []
+}
 
 export const userReducer = (
   state = initialState,
@@ -15,14 +15,14 @@ export const userReducer = (
     case ADD_AUTHED_USER:
       return {
         ...state,
-        user: action.user,
-      };
+        user: action.user
+      }
     case REMOVE_AUTHED_USER:
       return {
         ...state,
-        user: initialState.user,
-      };
+        user: initialState.user
+      }
     default:
-      return state;
+      return state
   }
-};
+}

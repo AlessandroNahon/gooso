@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-import "./styles.scss";
+import './styles.scss'
 
 interface Props {}
 
 const Projects: React.FC<Props> = () => {
-  return <div className="projects"></div>;
-};
+  return <div className='projects'></div>
+}
 
-export default Projects;
+export default Projects
